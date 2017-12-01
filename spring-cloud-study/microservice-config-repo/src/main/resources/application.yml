@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: microserver-config-repo
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/moben/spring-cloud-config-repo/
+          username: 306426541@qq.com
+          password: teamowp306426541
+      enabled: true
+server:
+  port: 8086
+

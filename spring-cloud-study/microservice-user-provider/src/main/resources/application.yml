@@ -1,0 +1,45 @@
+info:
+  app:
+    name: "@project.name@" #从pom.xml中获取
+    description: "@project.description@"
+    version: "@project.version@"
+
+server:
+  port: 8081
+
+eureka:
+  client:
+    service-url:
+        defaultZone: http://peer1:8761/eureka
+  instance:
+    prefer-ip-address: true
+
+spring:
+    application:
+        name: microservice-user-provider
+    #数据库配置
+    datasource:
+        url: jdbc:mysql://localhost:3306/test?characterEncoding=UTF-8&useSSL=false
+        driverClassName: com.mysql.jdbc.Driver
+        name: test
+        username: root
+        password: root
+        type: com.alibaba.druid.pool.DruidDataSource
+
+#mybatis配置
+mybatis:
+    type-aliases-package: com.wp.spring.study.user.provider.model
+    mapper-locations: classpath:mapper/*.xml
+
+mapper:
+    mappers:
+        - com.wp.spring.study.user.provider.base.ReadMapper
+        - com.wp.spring.study.user.provider.base.WriteMapper
+    not-empty: false
+    identity: MYSQL
+
+pagehelper:
+    helperDialect: mysql
+    reasonable: true
+    supportMethodsArguments: true
+    params: count=countSql

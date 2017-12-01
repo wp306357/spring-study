@@ -1,0 +1,20 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: microservice-api-gateway
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/
+
+# 下面整个树都非必须，如果不配置，将默认使用 http://GATEWAY:GATEWAY_POR
+#  T/想要访问的Eureka服务id的小写/** 路由到：http://想要访问的Eureka服务id
+#  的小写:该服务端口/**
+zuul:
+  routes:
+    user:       #可以随便写，在zuul上面唯一即可；当这里的值 = service-id时，service-id可以不写
+      path: /user-gw/**
+      service-id: microservice-user-provider
+
+#  ignored-services: microservice-user-provider  需要忽视的服务(配置后将不会被路由)

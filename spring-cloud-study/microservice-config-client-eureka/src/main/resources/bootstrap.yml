@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: microservice-config-repo
+  cloud:
+    config:
+      profile: default
+      label: master
+      enabled: true
+      discovery:
+        service-id: microservice-discovery-eureka-config
+        enabled: true
+
+management:
+  security:
+    enabled: false
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka

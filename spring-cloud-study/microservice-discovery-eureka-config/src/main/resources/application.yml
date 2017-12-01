@@ -1,0 +1,20 @@
+
+server:
+  port: 8861
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka/
+
+spring:
+  application:
+    name: microservice-discovery-eureka-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/moben/spring-cloud-config-repo/
+          search-paths: microservice-config-repo
+          username: 306426541@qq.com
+          password: teamowp306426541

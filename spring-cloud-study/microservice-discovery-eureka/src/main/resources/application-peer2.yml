@@ -1,0 +1,11 @@
+server:
+  port: 8762
+
+eureka:
+  instance:
+    hostname: 192.168.0.186
+  client:
+    service-url:
+      defaultZone: http://192.168.0.186:8761/eureka/
+
+

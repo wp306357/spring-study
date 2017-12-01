@@ -1,0 +1,17 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    service-url:
+      faultZone: http://peer1:8761/eureka
+  instance:
+    prefer-ip-address: true
+
+srping:
+  application:
+    name: microservice-user-consumer
+
+feign:
+    hystrix:
+        enabled: true           #开启feign的hystrix熔断功能
